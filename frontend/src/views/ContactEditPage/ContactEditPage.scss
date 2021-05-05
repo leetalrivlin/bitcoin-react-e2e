@@ -1,0 +1,24 @@
+.contact-edit-page {
+  .edit-title {
+    margin-block-end: 20px;
+    text-align: center;
+  }
+  form {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    > * {
+      margin-block-end: 20px;
+    }
+    label {
+      flex: 1;
+    }
+    input {
+      width: 85%;
+    }
+    .form-btn {
+      width: 200px;
+      margin-top: 0;
+    }
+  }
+}

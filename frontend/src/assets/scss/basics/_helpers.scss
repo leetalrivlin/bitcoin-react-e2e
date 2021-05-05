@@ -1,0 +1,99 @@
+@import '../setup/variables';
+
+/* FLEX HELPERS */
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.flex.space-between {
+  justify-content: space-between;
+}
+
+.flex.justify-center {
+  justify-content: center;
+}
+
+.flex.justify-end {
+  justify-content: flex-end;
+}
+
+.flex.justify-start {
+  justify-content: flex-start;
+}
+
+.flex.align-center {
+  align-items: center;
+}
+.flex.align-start {
+  align-items: flex-start;
+}
+
+.flex.flex-grow {
+  flex: 1;
+}
+
+/* LIST HELPERS */
+
+.clean-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* BUTTON HELPERS */
+
+.btn {
+  min-width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 16px;
+  outline: none;
+  border: none;
+  background-color: $clr2;
+  color: $clr1;
+  text-align: center;
+  &:hover {
+    background-color: #244588;
+  }
+}
+
+.icon {
+  width: 45px;
+}
+
+.back-icon {
+  position: absolute;
+  top: 100px;
+  left: 90px;
+  font-size: 2.5rem;
+  color: rgb(224, 224, 224);
+}
+
+// ASPECT RATIOS
+
+// .ratio-16-9 {
+//   @include aspect-ratio(100, 56);
+// }
+
+// .ratio-attachment {
+//   @include aspect-ratio(100, 70);
+// }
+
+// .ratio-square {
+//   @include aspect-ratio(100, 100);
+// }
+
+// .ratio-card {
+//   @include aspect-ratio(100, 80);
+// }
+
+// .ratio-poster {
+//   @include aspect-ratio(100, 150);
+// }

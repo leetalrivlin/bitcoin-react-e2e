@@ -1,0 +1,15 @@
+@import '../../assets/scss/setup/variables';
+
+.move-list-container {
+  width: 100%;
+  background-color: $clr5;
+  color: $clr1;
+  border-radius: 10px;
+  margin-block-start: 20px;
+  padding: 15px;
+  hr {
+    border-bottom: 1px dashed $clr1;
+    width: 70%;
+    margin: 8px 0;
+  }
+}

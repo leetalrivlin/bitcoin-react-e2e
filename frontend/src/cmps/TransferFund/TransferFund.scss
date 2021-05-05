@@ -1,0 +1,20 @@
+@import '../../assets/scss/setup/variables';
+
+.transfer-fund-container {
+  width: 100%;
+  padding: 20px;
+  background-color: $clr5;
+  border-radius: 10px;
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  form {
+    > *:not(:first-child) {
+      margin-inline-start: 10px;
+    }
+    input {
+      height: 35px;
+    }
+  }
+}

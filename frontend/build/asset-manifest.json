@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8f850083.chunk.css",
+    "main.js": "/static/js/main.053257f2.chunk.js",
+    "main.js.map": "/static/js/main.053257f2.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9e3d7c62.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9e3d7c62.js.map",
+    "static/js/2.88def7b4.chunk.js": "/static/js/2.88def7b4.chunk.js",
+    "static/js/2.88def7b4.chunk.js.map": "/static/js/2.88def7b4.chunk.js.map",
+    "static/js/3.2ffedf91.chunk.js": "/static/js/3.2ffedf91.chunk.js",
+    "static/js/3.2ffedf91.chunk.js.map": "/static/js/3.2ffedf91.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.8f850083.chunk.css.map": "/static/css/main.8f850083.chunk.css.map",
+    "static/js/2.88def7b4.chunk.js.LICENSE.txt": "/static/js/2.88def7b4.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/static/media/Segoe-UI.45472284.ttf",
+    "static/media/bitcoin-green.png": "/static/media/bitcoin-green.a51be967.png",
+    "static/media/gold-coin.png": "/static/media/gold-coin.add9b6ee.png",
+    "static/media/HomePage.scss": "/static/media/home-1.928af089.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9e3d7c62.js",
+    "static/js/2.88def7b4.chunk.js",
+    "static/css/main.8f850083.chunk.css",
+    "static/js/main.053257f2.chunk.js"
+  ]
+}

@@ -1,0 +1,41 @@
+@import '../../assets/scss/setup/variables';
+
+.home-page {
+  // background-image: url('../../assets/imgs/home-2.png');
+  // background-position: right center;
+  // background-size: 450px;
+  // background-repeat: no-repeat;
+  flex-grow: unset;
+  min-height: 90vh;
+  margin: 0;
+  .home-page-content {
+    .hello-container {
+      color: $clr1;
+      text-align: left;
+      width: 100%;
+      margin: 0 auto 20px auto;
+      border-radius: 10px;
+      .coins-icon{
+          width: 20px;
+      }
+      span {
+        margin-inline-start: 10px;
+      }
+    }
+  }
+  .cta-container {
+    .cta-sentance {
+      font-size: 2rem;
+    }
+  }
+  .cta-btn {
+    min-width: 40%;
+    height: 35px;
+    border-radius: 18px;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  img {
+    width: 550px;
+  }
+}

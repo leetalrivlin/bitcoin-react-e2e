@@ -1,0 +1,17 @@
+@import '../../assets/scss/setup/variables';
+
+.app-header {
+  background-color: $clr5;
+  .green-coin {
+    width: 30px;
+  }
+  .logo {
+    color: $clr2;
+    margin-inline-start: 10px;
+  }
+  .nav-list {
+    > *:not(:first-child) {
+      margin-inline-start: 20px;
+    }
+  }
+}

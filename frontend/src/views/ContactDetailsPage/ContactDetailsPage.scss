@@ -1,0 +1,16 @@
+.contact-details-page {
+  .details-content {
+    width: 50%;
+    margin: 0 auto;
+    .user-img {
+      width: 200px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .btn-container {
+      >* {
+        margin: 10px; 
+      }
+    }
+  }
+}

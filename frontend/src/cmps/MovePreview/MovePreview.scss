@@ -1,0 +1,14 @@
+.move-preview-container {
+  width: 100%;
+  .move-info {
+    width: 100%;
+    font-size: 12px;
+    >* {
+      margin-inline-start: 10px;
+      margin-inline-end: 10px;
+    }
+    .coins-icon {
+      width: 20px;
+    }
+  }
+}
