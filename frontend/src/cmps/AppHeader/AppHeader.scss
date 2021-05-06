@@ -10,6 +10,9 @@
     margin-inline-start: 10px;
   }
   .nav-list {
+    >* {
+      cursor: pointer;
+    }
     > *:not(:first-child) {
       margin-inline-start: 20px;
     }

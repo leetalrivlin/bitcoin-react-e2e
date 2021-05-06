@@ -35,9 +35,9 @@ class _HomePage extends Component {
     if (!this.bitCoinRate) return <div>Loading bitcoin rate.....</div>;
     return (
       <section className="main-layout flex space-between home-page">
-        <div className="flex column align-start justify-center">
+        <div className="flex column align-center justify-center home-page-content">
           {user && (
-            <div className="home-page-content">
+            <div>
               <div className="hello-container">
                 <h2>Hello {user.name}!</h2>
                 <p className="flex align-center">
@@ -61,7 +61,7 @@ class _HomePage extends Component {
               </div>
               <NavLink
                 to="/contact"
-                className="flex align-center justify-center btn cta-btn"
+                className="btn cta-btn"
               >
                 Continue Transfering
               </NavLink>
@@ -76,11 +76,11 @@ class _HomePage extends Component {
             </div>
           )}
           {!user && (
-            <div className="cta-container">
+            <div className="flex column space-between align-start cta-container">
               <p className="cta-sentance">Start transfering with a smile</p>
               <NavLink
                 to="/signup"
-                className="flex align-center justify-center btn cta-btn"
+                className="btn cta-btn"
               >
                 Get Started
               </NavLink>

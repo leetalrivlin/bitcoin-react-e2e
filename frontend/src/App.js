@@ -1,8 +1,4 @@
-import {
-  HashRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { ContactPage } from './views/ContactPage';
 import { HomePage } from './views/HomePage';
 import { StatisticPage } from './views/StatisticPage';
@@ -10,6 +6,7 @@ import { ContactDetailsPage } from './views/ContactDetailsPage';
 import { ContactEditPage } from './views/ContactEditPage';
 import { Signup } from './views/Signup';
 import { AppHeader } from './cmps/AppHeader/AppHeader';
+import { ToastContainer } from "react-toastify";
 import './App.scss';
 
 function App() {
@@ -17,6 +14,7 @@ function App() {
     <Router>
       <div className="flex column app">
         <AppHeader />
+        <ToastContainer autoClose={2000} position="bottom-left" progressClassName={'#07F'}/>
         <Switch>
           <Route component={ContactEditPage} path="/contact/edit/:id?" />
           <Route component={ContactDetailsPage} path="/contact/:id" />

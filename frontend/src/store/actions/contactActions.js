@@ -1,6 +1,6 @@
-import { contactService } from '../../services/contactService'
+import { contactService } from '../../services/contactService';
+import { toast } from "react-toastify";
 
-// Thunk - Action Dispatcher
 export function loadContacts(filterBy) {
   return async dispatch => {
     const contacts = await contactService.getContacts(filterBy)
@@ -24,14 +24,21 @@ export function saveContact(contact) {
     const isAdd = !contact._id
     const updatedContact = await contactService.saveContact(contact)
 
-    if (isAdd) dispatch({ type: 'ADD_CONTACT', contact: updatedContact })
-    else dispatch({ type: 'UPDATE_CONTACT', updatedContact })
+    if (isAdd) {
+      dispatch({ type: 'ADD_CONTACT', contact: updatedContact });
+      toast.dark('Contact added successfully');
+    }
+    else {
+      dispatch({ type: 'UPDATE_CONTACT', updatedContact });
+      toast.dark('Contact saved successfully');
+    }
   }
 }
 
 export function removeContact(contactId) {
   return async dispatch => {
     await contactService.deleteContact(contactId)
-    dispatch({ type: 'REMOVE_CONTACT', contactId })
+    dispatch({ type: 'REMOVE_CONTACT', contactId });
+    toast.dark('Contact deleted');
   }
 }

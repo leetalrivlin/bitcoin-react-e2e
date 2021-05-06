@@ -50,7 +50,7 @@ class _AppHeader extends Component {
           )}
           {user && (
             <li>
-              <a className="active-nav" onClick={this.onLogout}>Logout</a>
+              <p className="active-nav" onClick={this.onLogout}>Logout</p>
             </li>
           )}
         </ul>

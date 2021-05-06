@@ -66,7 +66,7 @@ class _ContactDetailsPage extends Component {
           &larr;
         </Link>
         <div className="flex justify-center">
-          <div className="flex column align-center justify-center details-content">
+          <div className="flex column align-center details-content">
             <img
               src={`https://i.pravatar.cc/150?u=${contact._id}`}
               alt=""
