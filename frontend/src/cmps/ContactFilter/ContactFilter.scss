@@ -1,4 +1,13 @@
+@import '../../assets/scss/setup/variables';
+@import '../../assets/scss/setup/mixins';
+
 .contact-form {
     width: 50%;
     margin: auto;
+}
+
+@include for-mobile-layout {
+    .contact-form {
+        width: 100%;
+    }
 }

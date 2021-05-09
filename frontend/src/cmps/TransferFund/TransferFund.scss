@@ -1,4 +1,5 @@
 @import '../../assets/scss/setup/variables';
+@import '../../assets/scss/setup/mixins';
 
 .transfer-fund-container {
   width: 100%;
@@ -16,5 +17,12 @@
     input {
       height: 35px;
     }
+  }
+}
+
+@include for-mobile-layout {
+  .transfer-fund-container {
+    margin-top: 20px;
+    padding: 15px;
   }
 }

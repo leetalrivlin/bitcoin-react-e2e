@@ -1,4 +1,5 @@
 @import '../setup/variables';
+@import '../setup/mixins';
 
 /* FLEX HELPERS */
 
@@ -64,9 +65,9 @@
   }
 }
 
-.icon {
-  width: 45px;
-}
+// .icon {
+//   width: 45px;
+// }
 
 .back-icon {
   position: absolute;
@@ -76,24 +77,9 @@
   color: rgb(224, 224, 224);
 }
 
-// ASPECT RATIOS
-
-// .ratio-16-9 {
-//   @include aspect-ratio(100, 56);
-// }
-
-// .ratio-attachment {
-//   @include aspect-ratio(100, 70);
-// }
-
-// .ratio-square {
-//   @include aspect-ratio(100, 100);
-// }
-
-// .ratio-card {
-//   @include aspect-ratio(100, 80);
-// }
-
-// .ratio-poster {
-//   @include aspect-ratio(100, 150);
-// }
+@include for-medium-layout {
+  .back-icon {
+    top: 53px;
+    left: 20px;
+  }
+}

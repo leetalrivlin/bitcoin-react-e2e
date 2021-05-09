@@ -2,9 +2,9 @@ import { Component } from 'react';
 import { bitcoinService } from '../../services/bitcoinService';
 import { connect } from 'react-redux';
 import { setUser } from '../../store/actions/userActions';
-import './HomePage.scss';
 import { MoveList } from '../../cmps/MoveList/MoveList';
 import { NavLink } from 'react-router-dom';
+import './HomePage.scss';
 
 class _HomePage extends Component {
   state = {
@@ -37,7 +37,7 @@ class _HomePage extends Component {
       <section className="main-layout flex space-between home-page">
         <div className="flex column align-center justify-center home-page-content">
           {user && (
-            <div>
+            <div className="user-info">
               <div className="hello-container">
                 <h2>Hello {user.name}!</h2>
                 <p className="flex align-center">
@@ -87,7 +87,7 @@ class _HomePage extends Component {
             </div>
           )}
         </div>
-        <img src={require('../../assets/imgs/home-2.png').default} alt="" />
+        <img src={require('../../assets/imgs/home-2.png').default} className="home-img" alt="transfer" />
       </section>
     );
   }

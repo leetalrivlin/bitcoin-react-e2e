@@ -1,3 +1,6 @@
+@import '../../assets/scss/setup/mixins';
+@import '../../assets/scss/setup/variables';
+
 .statistic-page {
   > * {
     margin: 50px auto;
@@ -5,5 +8,13 @@
     border-radius: 10px;
     color: #5F5F61;
     padding: 50px;
+  }
+}
+
+@include for-mobile-layout {
+  .statistic-page {
+    > * {
+      padding: 0;
+    }
   }
 }

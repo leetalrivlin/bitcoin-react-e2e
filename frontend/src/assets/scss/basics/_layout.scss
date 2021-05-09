@@ -1,3 +1,6 @@
+@import '../setup/mixins';
+@import '../setup/variables';
+
 .header-layout {
   padding: 0 15px;
   height: 50px;
@@ -10,4 +13,13 @@
 
 .main-content {
   flex: 1; 
+}
+
+@include for-narrow-layout {
+  .header-layout {
+    padding: 0 10px;
+  }
+  .main-layout {
+    padding: 20px 10px 20px 10px;
+  }
 }

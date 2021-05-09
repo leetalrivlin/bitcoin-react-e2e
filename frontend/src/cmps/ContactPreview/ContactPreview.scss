@@ -1,4 +1,5 @@
 @import '../../assets/scss/setup/variables';
+@import '../../assets/scss/setup/mixins';
 
 .contact-preview {
   background-color: $clr5;
@@ -17,5 +18,22 @@
   }
   p {
     margin-inline-start: 20px;
+  }
+}
+
+@include for-mobile-layout {
+  .contact-preview {
+    flex-direction: row;
+    padding: 5px;
+    height: 60px;
+    border-radius: 10px;
+    p {
+      order: 2;
+      margin-inline-start: 20px;
+    }
+    img {
+      width: 45px;
+      height: 45px;
+    }
   }
 }

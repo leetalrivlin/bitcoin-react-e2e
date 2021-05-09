@@ -6,14 +6,30 @@ import { NavLink } from 'react-router-dom';
 import { userService } from '../../services/userService';
 
 class _AppHeader extends Component {
+  state = {
+    isMenuOpen: false,
+  };
 
   onLogout = async () => {
     await userService.logout();
     this.props.setUser();
   };
 
+  onOpenMenu = () => {
+    this.setState({
+      isMenuOpen: true,
+    });
+  };
+
+  onCloseMenu = () => {
+    this.setState({
+      isMenuOpen: false,
+    });
+  };
+
   render() {
     const { user } = this.props;
+    const {isMenuOpen} = this.state;
     return (
       <div className="flex space-between align-center header-layout app-header">
         <NavLink exact to="/" className="flex align-center">
@@ -25,7 +41,15 @@ class _AppHeader extends Component {
           <h1 className="logo">Bitcoin</h1>
         </NavLink>
 
-        <ul className="flex clean-list nav-list">
+        { isMenuOpen && <div className="full-screen show-screen" onClick={this.onCloseMenu}></div> }
+        <ul
+          className={
+            'flex ' +
+            'clean-list ' +
+            'nav-list ' +
+            (isMenuOpen ? 'menu-open ' : '')
+          }
+        >
           <li>
             <NavLink exact to="/" activeClassName="active-nav">
               Home
@@ -50,10 +74,15 @@ class _AppHeader extends Component {
           )}
           {user && (
             <li>
-              <p className="active-nav" onClick={this.onLogout}>Logout</p>
+              <p className="active-nav" onClick={this.onLogout}>
+                Logout
+              </p>
             </li>
           )}
         </ul>
+        <button className="menu-btn" onClick={this.onOpenMenu}>
+          &#9776;
+        </button>
       </div>
     );
   }
@@ -66,4 +95,7 @@ const mapDispatchToProps = {
   setUser,
 };
 
-export const AppHeader = connect(mapStateToProps, mapDispatchToProps)(_AppHeader);
+export const AppHeader = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(_AppHeader);

@@ -28,7 +28,7 @@ export class Signup extends Component {
       <section className="flex column align-center main-layout signup-container">
         <form onSubmit={this.onSaveUser}>
           <h3>Please enter your name:</h3>
-          <div className="flex align-center space-between">
+          <div className="flex align-center space-between input-container">
             <input
               required
               type="text"
@@ -37,7 +37,7 @@ export class Signup extends Component {
               name="name"
               placeholder="Enter your name"
             />
-            <button className="btn">Signup</button>
+            <button className="btn signup-btn">Signup</button>
           </div>
         </form>
       </section>

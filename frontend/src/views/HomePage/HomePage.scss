@@ -7,17 +7,18 @@
   margin: 0;
   .home-page-content {
     flex-grow: 1;
-    .hello-container {
-      color: $clr1;
-      text-align: left;
-      width: 100%;
-      margin: 0 auto 20px auto;
-      border-radius: 10px;
-      .coins-icon {
-        width: 20px;
-      }
-      span {
-        margin-inline-start: 10px;
+    .user-info {
+      .hello-container {
+        color: $clr1;
+        text-align: left;
+        width: 100%;
+        margin: 0 auto 20px auto;
+        .coins-icon {
+          width: 20px;
+        }
+        span {
+          margin-inline-start: 10px;
+        }
       }
     }
   }
@@ -33,14 +34,14 @@
     font-size: 14px;
     padding: 10px 20px;
   }
-  img {
+  .home-img {
     width: 550px;
   }
 }
 
 @include for-medium-layout {
   .home-page {
-    img {
+    .home-img {
       width: 400px;
     }
   }
@@ -48,6 +49,33 @@
 @include for-narrow-layout {
   .home-page {
     flex-direction: column;
+    justify-items: flex-start;
     align-items: center;
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      .hello-container {
+        > * {
+          text-align: center;
+          justify-content: center;
+        }
+      }
+    }
+    .cta-container {
+      .cta-sentance {
+        line-height: 1.2;
+        font-size: 1.8rem;
+      }
+    }
+    .cta-btn {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    .home-img {
+      width: 100%;
+      margin-top: 50px;
+    }
   }
 }

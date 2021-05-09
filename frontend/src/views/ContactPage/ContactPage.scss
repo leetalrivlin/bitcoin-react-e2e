@@ -1,3 +1,6 @@
+@import '../../assets/scss/setup/mixins';
+@import '../../assets/scss/setup/variables';
+
 .contact-page {
   width: 100%;
   .plus-icon {
@@ -8,5 +11,14 @@
     border-radius: 50%;
     box-shadow: 0px 0px 14px -2px #000000;
     background-color: rgb(201, 201, 201);
+  }
+}
+
+@include for-mobile-layout {
+  .contact-page {
+    .plus-icon {
+      right: 25px;
+      bottom: 25px;
+    }
   }
 }

@@ -1,3 +1,6 @@
+@import '../../assets/scss/setup/mixins';
+@import '../../assets/scss/setup/variables';
+
 .move-preview-container {
   width: 100%;
   .move-info {
@@ -9,6 +12,19 @@
     }
     .coins-icon {
       width: 20px;
+    }
+  }
+}
+
+@include for-mobile-layout {
+  .move-preview-container {
+    .move-info {
+      flex-direction: column;
+      align-items: center;
+      .coins-icon {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
     }
   }
 }

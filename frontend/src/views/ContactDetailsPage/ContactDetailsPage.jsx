@@ -1,14 +1,14 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './ContactDetailsPage.scss';
 import { TransferFund } from '../../cmps/TransferFund/TransferFund';
 import { connect } from 'react-redux';
 import { setUser, addMove } from '../../store/actions/userActions';
+import { MoveList } from '../../cmps/MoveList/MoveList';
 import {
   getContactById,
   removeContact,
 } from '../../store/actions/contactActions';
-import { MoveList } from '../../cmps/MoveList/MoveList';
+import './ContactDetailsPage.scss';
 
 class _ContactDetailsPage extends Component {
   state = {
@@ -25,7 +25,7 @@ class _ContactDetailsPage extends Component {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.props.getContactById(this.props.match.params.id);
     }
-    if (prevProps.user.moves?.length !== this.props.user.moves?.length) {
+    if (prevProps.user?.moves?.length !== this.props.user?.moves?.length) {
       this.contactMoves();
     }
   }
@@ -51,21 +51,22 @@ class _ContactDetailsPage extends Component {
   };
 
   contactMoves = () => {
-    const contactMoves = this.props.user.moves.filter(
+    const contactMoves = this.props.user?.moves.filter(
       (move) => move.toId === this.props.contact._id
     );
     this.setState({ contactMoves });
   };
 
   render() {
-    const { contact } = this.props;
-    if (!contact) return <div>Loading Contact.....</div>;
+    const { contact, user } = this.props;
+    if (!contact) return <div className="load-msg">Loading Contacts.....</div>;
+    if (!user) return <div className="load-msg">Please login to search contacts</div>;
     return (
       <section className="main-layout contact-details-page">
         <Link to={'/contact'} className="back-icon">
           &larr;
         </Link>
-        <div className="flex justify-center">
+        { user && <div className="flex justify-center details-container">
           <div className="flex column align-center details-content">
             <img
               src={`https://i.pravatar.cc/150?u=${contact._id}`}
@@ -99,7 +100,7 @@ class _ContactDetailsPage extends Component {
               />
             )}
           </div>
-        </div>
+        </div> }
       </section>
     );
   }
