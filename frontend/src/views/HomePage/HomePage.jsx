@@ -38,7 +38,7 @@ class _HomePage extends Component {
         <div className="flex column align-center justify-center home-page-content">
           {user && (
             <div className="user-info">
-              <div className="hello-container">
+              <div className="flex column hello-container">
                 <h2>Hello {user.name}!</h2>
                 <p className="flex align-center">
                   <img

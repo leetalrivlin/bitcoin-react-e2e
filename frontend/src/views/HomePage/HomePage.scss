@@ -50,16 +50,16 @@
   .home-page {
     flex-direction: column;
     justify-items: flex-start;
-    align-items: center;
-    .user-info {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      .hello-container {
-        > * {
-          text-align: center;
-          justify-content: center;
+    // align-items: center;
+    .home-page-content {
+      align-items: unset;
+      .user-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        .hello-container {
+          align-items: center;
         }
       }
     }
