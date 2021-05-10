@@ -9,11 +9,13 @@ import {
   removeContact,
 } from '../../store/actions/contactActions';
 import './ContactDetailsPage.scss';
+import { Confirm } from '../../cmps/Confirm/Confirm';
 
 class _ContactDetailsPage extends Component {
   state = {
     amount: null,
     contactMoves: null,
+    isConfirmOpen: false
   };
 
   async componentDidMount() {
@@ -29,11 +31,6 @@ class _ContactDetailsPage extends Component {
       this.contactMoves();
     }
   }
-
-  onDeleteContact = async () => {
-    await this.props.removeContact(this.props.contact._id);
-    this.props.history.push('/contact');
-  };
 
   handleChange = ({ target }) => {
     var value = target.type === 'number' ? +target.value : target.value;
@@ -57,8 +54,26 @@ class _ContactDetailsPage extends Component {
     this.setState({ contactMoves });
   };
 
+  onOpenConfirm = () => {
+    this.setState({
+      isConfirmOpen: true,
+    });
+  };
+
+  onCloseConfirm = () => {
+    this.setState({
+      isConfirmOpen: false,
+    });
+  };
+
+  onDeleteContact = async () => {
+    await this.props.removeContact(this.props.contact._id);
+    this.props.history.push('/contact');
+  };
+
   render() {
     const { contact, user } = this.props;
+    const { isConfirmOpen } =  this.state;
     if (!contact) return <div className="load-msg">Loading Contacts.....</div>;
     if (!user) return <div className="load-msg">Please login to search contacts</div>;
     return (
@@ -80,7 +95,7 @@ class _ContactDetailsPage extends Component {
               <Link to={'/contact/edit/' + contact._id} className="btn">
                 Edit
               </Link>
-              <button onClick={() => this.onDeleteContact()} className="btn">
+              <button onClick={this.onOpenConfirm} className="btn">
                 Delete
               </button>
             </div>
@@ -101,6 +116,13 @@ class _ContactDetailsPage extends Component {
             )}
           </div>
         </div> }
+        {isConfirmOpen && (
+          <Confirm
+            question={`Are you sure you want to delete ${contact.name}?`}
+            onClose={this.onCloseConfirm}
+            onConfirm={() => this.onDeleteContact()}
+          />
+        )}
       </section>
     );
   }

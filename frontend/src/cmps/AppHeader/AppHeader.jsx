@@ -12,26 +12,24 @@ class _AppHeader extends Component {
     isConfirmOpen: false,
   };
 
-  
   onOpenMenu = () => {
     this.setState({
       isMenuOpen: true,
     });
   };
-  
-  
+
   onCloseMenu = () => {
     this.setState({
       isMenuOpen: false,
     });
   };
-  
+
   onOpenConfirm = () => {
     this.setState({
       isConfirmOpen: true,
     });
   };
-  
+
   onLogout = async () => {
     await userService.logout();
     await this.props.setUser();
@@ -43,7 +41,7 @@ class _AppHeader extends Component {
       isConfirmOpen: false,
     });
   };
-  
+
   render() {
     const { user } = this.props;
     const { isMenuOpen, isConfirmOpen } = this.state;

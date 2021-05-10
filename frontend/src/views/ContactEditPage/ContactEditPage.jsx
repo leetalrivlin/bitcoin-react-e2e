@@ -4,11 +4,13 @@ import { contactService } from '../../services/contactService';
 import { connect } from 'react-redux';
 import { saveContact, removeContact } from '../../store/actions/contactActions';
 import './ContactEditPage.scss';
+import { Confirm } from '../../cmps/Confirm/Confirm';
 
 class _ContactEditPage extends Component {
   state = {
     contact: null,
     errMsg: '',
+    isConfirmOpen: false,
   };
   async componentDidMount() {
     const { id } = this.props.match.params;
@@ -29,15 +31,29 @@ class _ContactEditPage extends Component {
       contact: { ...prevState.contact, [field]: value },
     }));
   };
+
   onSaveContact = async (ev) => {
     ev.preventDefault();
     await this.props.saveContact({ ...this.state.contact });
     this.props.history.push('/contact');
   };
 
-  onDeleteContact = async (contactId) => {
-    await this.props.removeContact(contactId);
+  onDeleteContact = async () => {
+    await this.props.removeContact(this.state.contact._id);
     this.props.history.push('/contact');
+  };
+
+  onOpenConfirm = (ev) => {
+    ev.preventDefault();
+    this.setState({
+      isConfirmOpen: true,
+    });
+  };
+
+  onCloseConfirm = () => {
+    this.setState({
+      isConfirmOpen: false,
+    });
   };
 
   get title() {
@@ -48,17 +64,20 @@ class _ContactEditPage extends Component {
   render() {
     if (!this.state.contact) return <div>{this.state.errMsg || 'Loading'}</div>;
     const { name, phone, email } = this.state.contact;
+    const { isConfirmOpen } = this.state;
     const route = this.state.contact._id
       ? `/contact/${this.state.contact._id}`
       : '/contact';
     return (
       <div className="main-layout contact-edit-page">
-        <Link to={route}className="back-icon">&larr;</Link>
+        <Link to={route} className="back-icon">
+          &larr;
+        </Link>
 
         <h2 className="edit-title">{this.title}</h2>
         <form
           className="flex column contact-edit"
-          onSubmit={this.onSaveContact}
+          
         >
           <div className="flex space-between align-center">
             <label htmlFor="name">Name:</label>
@@ -102,15 +121,22 @@ class _ContactEditPage extends Component {
           <p>{this.state.errMsg}</p>
 
           <section className="flex space-between">
-            <button className="btn form-btn">Save Contact</button>
+            <button className="btn form-btn" onClick={this.onSaveContact}>Save Contact</button>
             <button
-              onClick={() => this.onDeleteContact(this.state.contact._id)}
+              onClick={this.onOpenConfirm}
               className="btn form-btn delete-btn"
             >
               Delete Contact
             </button>
           </section>
         </form>
+        {isConfirmOpen && (
+          <Confirm
+            question={`Are you sure you want to delete ${name}?`}
+            onClose={this.onCloseConfirm}
+            onConfirm={this.onDeleteContact}
+          />
+        )}
       </div>
     );
   }
