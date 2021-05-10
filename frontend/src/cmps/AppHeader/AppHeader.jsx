@@ -4,34 +4,51 @@ import { connect } from 'react-redux';
 import { setUser } from '../../store/actions/userActions';
 import { NavLink } from 'react-router-dom';
 import { userService } from '../../services/userService';
+import { Confirm } from '../Confirm/Confirm';
 
 class _AppHeader extends Component {
   state = {
     isMenuOpen: false,
+    isConfirmOpen: false,
   };
 
-  onLogout = async () => {
-    await userService.logout();
-    this.props.setUser();
-  };
-
+  
   onOpenMenu = () => {
     this.setState({
       isMenuOpen: true,
     });
   };
-
+  
+  
   onCloseMenu = () => {
     this.setState({
       isMenuOpen: false,
     });
   };
+  
+  onOpenConfirm = () => {
+    this.setState({
+      isConfirmOpen: true,
+    });
+  };
+  
+  onLogout = async () => {
+    await userService.logout();
+    await this.props.setUser();
+    this.onCloseConfirm();
+  };
 
+  onCloseConfirm = () => {
+    this.setState({
+      isConfirmOpen: false,
+    });
+  };
+  
   render() {
     const { user } = this.props;
-    const {isMenuOpen} = this.state;
+    const { isMenuOpen, isConfirmOpen } = this.state;
     return (
-      <div className="flex space-between align-center header-layout app-header">
+      <section className="flex space-between align-center header-layout app-header">
         <NavLink exact to="/" className="flex align-center">
           <img
             src={require('../../assets/icons/bitcoin-green.png').default}
@@ -41,7 +58,12 @@ class _AppHeader extends Component {
           <h1 className="logo">Bitcoin</h1>
         </NavLink>
 
-        { isMenuOpen && <div className="full-screen show-screen" onClick={this.onCloseMenu}></div> }
+        {isMenuOpen && (
+          <div
+            className="full-screen show-screen"
+            onClick={this.onCloseMenu}
+          ></div>
+        )}
         <ul
           className={
             'flex ' +
@@ -74,7 +96,7 @@ class _AppHeader extends Component {
           )}
           {user && (
             <li>
-              <p className="active-nav" onClick={this.onLogout}>
+              <p className="active-nav" onClick={this.onOpenConfirm}>
                 Logout
               </p>
             </li>
@@ -83,7 +105,14 @@ class _AppHeader extends Component {
         <button className="menu-btn" onClick={this.onOpenMenu}>
           &#9776;
         </button>
-      </div>
+        {isConfirmOpen && (
+          <Confirm
+            question="Are you sure you want to logout?"
+            onClose={this.onCloseConfirm}
+            onConfirm={this.onLogout}
+          />
+        )}
+      </section>
     );
   }
 }
