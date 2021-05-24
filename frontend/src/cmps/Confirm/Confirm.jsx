@@ -1,4 +1,4 @@
-import './Confirm.scss';
+import './confirm.scss';
 
 export const Confirm = ({ question, onClose, onConfirm }) => {
   return (

@@ -1,1 +1,0 @@
-export { UserMsg } from './UserMsg'

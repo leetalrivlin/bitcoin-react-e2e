@@ -1,11 +1,11 @@
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import { ContactPage } from './views/ContactPage';
-import { HomePage } from './views/HomePage';
-import { StatisticPage } from './views/StatisticPage';
-import { ContactDetailsPage } from './views/ContactDetailsPage';
-import { ContactEditPage } from './views/ContactEditPage';
-import { Signup } from './views/Signup';
-import { AppHeader } from './cmps/AppHeader/AppHeader';
+import { ContactApp } from './views/contact-app';
+import { HomePage } from './views/home-page';
+import { Statistic } from './views/statistic';
+import { ContactDetails } from './views/contact-details';
+import { ContactEdit } from './views/contact-edit';
+import { Signup } from './views/signup';
+import { AppHeader } from './cmps/app-header/app-header';
 import { ToastContainer } from "react-toastify";
 import './App.scss';
 
@@ -16,10 +16,10 @@ function App() {
         <AppHeader />
         <ToastContainer autoClose={2000} position="bottom-left" progressClassName={'#07F'}/>
         <Switch>
-          <Route component={ContactEditPage} path="/contact/edit/:id?" />
-          <Route component={ContactDetailsPage} path="/contact/:id" />
-          <Route component={ContactPage} path="/contact" />
-          <Route component={StatisticPage} path="/statistic" />
+          <Route component={ContactEdit} path="/contact/edit/:id?" />
+          <Route component={ContactDetails} path="/contact/:id" />
+          <Route component={ContactApp} path="/contact" />
+          <Route component={Statistic} path="/statistic" />
           <Route component={Signup} path="/signup" />
           <Route component={HomePage} path="/" />
         </Switch>

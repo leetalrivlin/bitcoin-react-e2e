@@ -1,7 +1,7 @@
 import { Sparklines, SparklinesLine } from 'react-sparklines';
-import './Chart.scss';
+import './chart.scss';
 
-export function Chart({ data, title }) {
+export function chart({ data, title }) {
   return (
     <div>
       <h2>{title}</h2>

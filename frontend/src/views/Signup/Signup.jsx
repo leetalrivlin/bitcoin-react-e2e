@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { userService } from '../../services/userService';
-import './Signup.scss';
+import './signup.scss';
 
 export class Signup extends Component {
   state = {

@@ -1,1 +1,0 @@
-export { StatisticPage } from './StatisticPage'
